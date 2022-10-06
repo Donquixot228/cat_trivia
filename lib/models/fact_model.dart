@@ -1,13 +1,13 @@
 class FactModel {
-  final String text;
+  final String fact;
 
   FactModel({
-    required this.text,
+    required this.fact,
   });
 
   factory FactModel.fromJson(Map<String, dynamic> json) {
     return FactModel(
-      text: json['text'],
+      fact: json['fact'],
     );
   }
 }
