@@ -6,9 +6,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+  static const String routeName = '/';
 
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => const HomePage());
+  static Widget create() {
+    return const HomePage();
   }
 
   @override
@@ -54,6 +55,12 @@ class HomePage extends StatelessWidget {
                         );
                       }),
                 ),
+                Spacer(),
+                IconButton(
+                    onPressed: () {
+                      context.read<HomeBloc>().add(ClearHistory());
+                    },
+                    icon: Icon(Icons.ac_unit)),
                 Spacer(),
               ],
             ),

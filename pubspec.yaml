@@ -21,6 +21,8 @@ dependencies:
   flutter_svg: ^1.1.5
   # Services
   hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  intl:
   json_serializable: ^6.3.1
   get_it: ^7.2.0
 
@@ -50,6 +52,11 @@ flutter:
 
 
   fonts:
-    - family: TTNorms-Bold
+    - family: Manrope-Regular
       fonts:
-        - asset: assets/fonts/TTNorms-Bold.ttf
+        - asset: assets/fonts/Manrope-Regular.ttf
+
+    - family: Manrope-Bold
+      fonts:
+        - asset: assets/fonts/Manrope-Bold.ttf
+
