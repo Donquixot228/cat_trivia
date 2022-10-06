@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:cat_trivia/models/fact_model.dart';
-import 'package:cat_trivia/repositories/database_repository.dart';
+import 'package:cat_trivia/repositories/datebase_repository/datebase_repository.dart';
 import 'package:meta/meta.dart';
 
 import '../../constants/constants.dart';

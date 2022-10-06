@@ -1,10 +1,8 @@
 import 'package:cat_trivia/blocs/home_bloc/home_bloc.dart';
-import 'package:cat_trivia/repositories/database_repository.dart';
 import 'package:cat_trivia/resources/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

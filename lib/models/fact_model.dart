@@ -1,6 +1,5 @@
 class FactModel {
   final String fact;
-
   FactModel({
     required this.fact,
   });
