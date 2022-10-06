@@ -32,6 +32,29 @@ class HomePage extends StatelessWidget {
                 Spacer(),
                 Text(state.factModel.fact),
                 Spacer(),
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  child: ListView.builder(
+                      itemCount: state.historyList.length,
+                      itemBuilder: (context, item) {
+                        return Row(
+                          children: [
+                            Text(
+                              state.historyList[item].time,
+                              style: TextStyle(
+                                  color: Colors.black54, fontSize: 10),
+                            ),
+                            Text(
+                              state.historyList[item].text,
+                              style: TextStyle(
+                                  color: Colors.black54, fontSize: 10),
+                            ),
+                          ],
+                        );
+                      }),
+                ),
+                Spacer(),
               ],
             ),
           ),
