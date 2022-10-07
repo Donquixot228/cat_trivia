@@ -1,11 +1,13 @@
+import 'dart:developer';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:cat_trivia/models/cat_model.dart';
 import 'package:cat_trivia/models/fact_model.dart';
 import 'package:cat_trivia/models/history_model/hystory_model.dart';
 import 'package:cat_trivia/repositories/datebase_repository/datebase_repository.dart';
 import 'package:cat_trivia/repositories/local_repository/local_repository.dart';
-import 'package:hive/hive.dart';
+import 'package:cat_trivia/repositories/simple_repository/simple_repository.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/constants.dart';
@@ -26,28 +28,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         super(HomeState.initial()) {
     on<InitialSetUp>(
       (event, emit) async {
+        emit(state.copyWith(homeStatus: HomeStatus.loading));
         _localRepository.init();
         FactModel factModel = await _dataBaseRepository.getFact();
-        String imageUrl = '${Constants.catPhotoUrl}?v=${Random().nextInt(100)}';
+        CatModel catModel = await SimpleRepository().getCat();
         emit(
           state.copyWith(
             factModel: factModel,
-            imageUrl: imageUrl,
+            catModel: catModel,
           ),
         );
+        // usually we use try catch{} and some logic of error handling here. But at this moment i don't use it
+        emit(state.copyWith(homeStatus: HomeStatus.initial));
+        add(GetHistory());
       },
     );
 
     on<GetFact>(
       (event, emit) async {
+        emit(state.copyWith(homeStatus: HomeStatus.loading));
+        CatModel catModel = await SimpleRepository().getCat();
         FactModel factModel = await _dataBaseRepository.getFact();
-        String imageUrl = '${Constants.catPhotoUrl}?v=${Random().nextInt(100)}';
         emit(
           state.copyWith(
             factModel: factModel,
-            imageUrl: imageUrl,
+            catModel: catModel,
           ),
         );
+        emit(state.copyWith(homeStatus: HomeStatus.initial));
         add(SaveLocal(factModel: factModel));
         add(GetHistory());
       },
@@ -65,7 +73,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GetHistory>(
       (event, emit) async {
         final histories = _localRepository.getHistory();
-        log(histories.length);
         emit(
           state.copyWith(
             historyList: histories,
@@ -74,8 +81,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       },
     );
     on<ClearHistory>(
-          (event, emit) async {
-         _localRepository.clearHistory();
+      (event, emit) async {
+        _localRepository.clearHistory();
+
         emit(
           state.copyWith(
             historyList: [],

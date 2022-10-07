@@ -1,19 +1,29 @@
 class CatModel {
-  final String name;
-  final String description;
-  final String imageUrl;
+  final String id;
+  final String url;
+  final int width;
+  final int height;
 
   CatModel({
-    required this.name,
-    required this.description,
-    required this.imageUrl,
+    required this.id,
+    required this.url,
+    required this.width,
+    required this.height,
   });
 
   factory CatModel.fromJson(Map<String, dynamic> json) {
     return CatModel(
-      name: json['name'],
-      description: json['description'],
-      imageUrl: json['imageUrl'],
+      id: json['id'],
+      url: json['url'],
+      width: json['width'],
+      height: json['height'],
     );
   }
+
+  factory CatModel.mocked() => CatModel(
+        id: 'Mocked id',
+        url: '',
+        width: 0,
+        height: 0,
+      );
 }

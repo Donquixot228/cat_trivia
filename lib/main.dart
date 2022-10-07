@@ -1,6 +1,5 @@
 import 'package:cat_trivia/blocs/home_bloc/home_bloc.dart';
 import 'package:cat_trivia/cubits/navigation_index_cubit/navigation_index_cubit.dart';
-import 'package:cat_trivia/pages/home/home_page.dart';
 import 'package:cat_trivia/pages/main_controller_page.dart';
 import 'package:cat_trivia/repositories/local_repository/local_repository.dart';
 import 'package:cat_trivia/services/locator.dart';
@@ -47,6 +46,7 @@ Future<void> main() async {
 
 class App extends StatelessWidget {
   const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
