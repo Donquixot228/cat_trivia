@@ -1,5 +1,3 @@
-import 'dart:developer';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:cat_trivia/models/cat_model.dart';
@@ -10,7 +8,6 @@ import 'package:cat_trivia/repositories/local_repository/local_repository.dart';
 import 'package:cat_trivia/repositories/simple_repository/simple_repository.dart';
 import 'package:intl/intl.dart';
 
-import '../../constants/constants.dart';
 
 part 'home_event.dart';
 
