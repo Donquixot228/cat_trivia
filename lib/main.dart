@@ -7,7 +7,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
 import 'repositories/datebase_repository/datebase_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -30,12 +29,18 @@ Future<void> main() async {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => NavigationIndexCubit()),
+          BlocProvider(
+            create: (context) => NavigationIndexCubit(),
+          ),
           BlocProvider(
             create: (context) => HomeBloc(
-              dataBaseRepository: DataBaseRepository(Dio()),
+              dataBaseRepository: DataBaseRepository(
+                Dio(),
+              ),
               localRepository: LocalRepository(),
-            )..add(InitialSetUp()),
+            )..add(
+                InitialSetUp(),
+              ),
           ),
         ],
         child: const App(),

@@ -1,4 +1,3 @@
-
 import 'package:cat_trivia/blocs/home_bloc/home_bloc.dart';
 import 'package:cat_trivia/resources/app_colors.dart';
 import 'package:cat_trivia/resources/app_typography.dart';
@@ -26,11 +25,16 @@ class AnotherCatButton extends StatelessWidget {
                 color: AppColors.primary4,
               ),
               child: Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-                child: Text('Another fact!',
-                    style:
-                    AppTypography.bodyBold.copyWith(color: Colors.white)),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 10,
+                ),
+                child: Text(
+                  'Another fact!',
+                  style: AppTypography.bodyBold.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],

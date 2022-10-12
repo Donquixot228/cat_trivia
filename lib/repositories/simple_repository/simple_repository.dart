@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cat_trivia/constants/constants.dart';
 import 'package:cat_trivia/models/cat_model.dart';
 import 'package:http/http.dart' as http;

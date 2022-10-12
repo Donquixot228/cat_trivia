@@ -79,8 +79,6 @@ class AppColors {
   static const Color accentOrange4 = Color(0xFFF79E7A);
   static const Color accentOrange5 = Color(0xFFFCDFD3);
 
-
-
   //Gradient
   static const List<Color> gradientNavyDark = [
     Color(0xFF072439),
@@ -116,5 +114,4 @@ class AppColors {
   ];
   static const Color backGroundNavy = Color(0xFF0B3C5F);
   static const Color backGroundGray = Color(0xFFF4F4F4);
-
 }

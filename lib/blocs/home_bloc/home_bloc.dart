@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:cat_trivia/models/cat_model.dart';
 import 'package:cat_trivia/models/fact_model.dart';
@@ -7,7 +6,6 @@ import 'package:cat_trivia/repositories/datebase_repository/datebase_repository.
 import 'package:cat_trivia/repositories/local_repository/local_repository.dart';
 import 'package:cat_trivia/repositories/simple_repository/simple_repository.dart';
 import 'package:intl/intl.dart';
-
 
 part 'home_event.dart';
 
@@ -35,7 +33,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             catModel: catModel,
           ),
         );
-        // usually we use try catch{} and some logic of error handling here. But at this moment i don't use it
         emit(state.copyWith(homeStatus: HomeStatus.initial));
         add(GetHistory());
       },

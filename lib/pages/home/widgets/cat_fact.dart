@@ -15,7 +15,9 @@ class CatFact extends StatelessWidget {
       builder: (context, state) {
         return Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
             child: Container(
               alignment: Alignment.center,
               child: Text(

@@ -1,7 +1,4 @@
-// This realization i don't use so often. Just for example how to work app_route with locator
-
 import 'package:cat_trivia/pages/pages.dart';
-import 'package:cat_trivia/resources/app_colors.dart';
 import 'package:cat_trivia/routes/app_rauter.dart';
 import 'package:cat_trivia/services/locator.dart';
 import 'package:cat_trivia/services/navigation_service.dart';
@@ -20,11 +17,7 @@ class MainControllerPage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        backgroundColor: Colors.white, // appBar: AppBar(
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0.0,
-        //   automaticallyImplyLeading: false,
-        // ),
+        backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
         body: Navigator(
           key: locator<NavigationService>().navigatorKey,
